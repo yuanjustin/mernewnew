@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script language="javascript" type="text/javascript" src="../js/jquery-1.11.3.min.js"></script>
+    <script language="javascript" type="text/javascript" src="../js/highcharts.js"></script>
+
+</head>
+<body>
+<div id="container" style="min-width:700px;height:500px"></div>
+
+</body>
+
+<script>
+    function work() {
+        var factor = new Array();
+        var disease = new Array();
+        $.each(window.parent.searchResult, function (i, item) {
+            disease[i] = item.disease;
+            factor[i] = parseFloat(item.factor);
+        });
+        $('#container').highcharts({
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: '症状检索结果'
+            },
+            subtitle: {
+                text: '  '
+            },
+            xAxis: {
+                categories: disease,
+                title: {
+                    text: null
+                }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: '相关度',
+                    align: 'high'
+                },
+                labels: {
+                    overflow: 'justify'
+                }
+            },
+            tooltip: {
+                valueSuffix: ' 相关度'
+            },
+            plotOptions: {
+                bar: {
+                    dataLabels: {
+                        enabled: false
+                    }
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'top',
+                x: -40,
+                y: 100,
+                floating: true,
+                borderWidth: 1,
+                backgroundColor: '#FFFFFF',
+                shadow: true
+            },
+            credits: {
+                enabled: false
+            },
+            series: [{
+                name: '相关疾病',
+                data: factor
+            }]
+        });
+
+
+    }
+
+</script>
+
+
+</html>

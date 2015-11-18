@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script language="javascript" type="text/javascript" src="../js/jquery-1.11.3.min.js"></script>
+    <script language="javascript" type="text/javascript" src="../js/highcharts.js"></script>
+    <script>
+        function work() {
+            var danger = new Array();
+            var disease = new Array();
+            $.each(window.parent.danger, function (i, item) {
+                disease[i] = item.disease;
+                danger[i] = parseInt(item.danger);
+            });
+
+
+            $('#container').highcharts({
+                chart: {
+                    type: 'bar'
+                },
+                title: {
+                    text: '症状检索出容易忽略的危险疾病'
+                },
+                subtitle: {
+                    text: '  '
+                },
+                xAxis: {
+                    categories: disease,
+                    title: {
+                        text: null
+                    }
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: '危险度',
+                        align: 'high'
+                    },
+                    labels: {
+                        overflow: 'justify'
+                    }
+                },
+                tooltip: {
+                    valueSuffix: ' 危险度'
+                },
+                plotOptions: {
+                    bar: {
+                        dataLabels: {
+                            enabled: false
+                        }
+                    }
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'top',
+                    x: -40,
+                    y: 100,
+                    floating: true,
+                    borderWidth: 1,
+                    backgroundColor: '#FFFFFF',
+                    shadow: true
+                },
+                credits: {
+                    enabled: false
+                },
+                series: [{
+                    name: '潜在危险疾病',
+                    data: danger
+                }]
+            });
+        }
+    </script>
+</head>
+<body>
+<div id="container" style="min-width:700px;height:500px"></div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+[
+  [
+    {
+      "disease": "ddf",
+      "danger": 123
+    },
+    {
+      "disease": "ddf",
+      "danger": 345
+    },
+    {
+      "disease": "ddf",
+      "danger": 345
+    },
+    {
+      "disease": "ddf",
+      "danger": 345
+    },
+    {
+      "disease": "ddf",
+      "danger": 345
+    }
+  ],
+  [
+    {
+      "disease": "ddf",
+      "factor": "10%"
+    },
+    {
+      "disease": "ddf",
+      "factor": "89%"
+    },
+    {
+      "disease": "ddf",
+      "factor": "56%"
+    },
+    {
+      "disease": "ddf",
+      "factor": "4%"
+    }
+  ]
+]

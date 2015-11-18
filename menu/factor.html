@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script language="javascript" type="text/javascript" src="../js/jquery-1.11.3.min.js"></script>
+    <script language="javascript" type="text/javascript" src="../js/highcharts.js"></script>
+
+</head>
+<body>
+<script>
+    function work() {
+        $('#container').html('');
+        var data = new Array();
+        $.each(window.parent.disease, function (i, item) {
+            var disease = new Array();
+            disease[0] = item.disease;
+            disease[1] = item.factor.replace(/([0-9.]+)%/, function (a, b) {
+                        return +b / 100;
+                    }) * 1;
+            data[i] = disease;
+        });
+//        Highcharts.getOptions().colors = Highcharts.map(Highcharts.getOptions().colors, function(color) {
+//            return {
+//                radialGradient: { cx: 0.5, cy: 0.3, r: 0.7 },
+//                stops: [
+//                    [0, color],
+//                    [1, Highcharts.Color(color).brighten(-0.3).get('rgb')] // darken
+//                ]
+//            };
+//        });
+        $('#container').highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            },
+            title: {
+                text: '症状检索的结果'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        color: '#000000',
+                        connectorColor: '#000000',
+                        formatter: function () {
+                            return '<b>' + this.point.name + '</b>';
+                        }
+                    }
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: '对应疾病比例',
+                data: data
+            }]
+        });
+    }
+</script>
+<div id="container" style="min-width:700px;height:500px"></div>
+</body>
+</html>

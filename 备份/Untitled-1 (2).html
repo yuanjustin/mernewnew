@@ -1,0 +1,73 @@
+<html >
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+	<title>simpuandui</title>
+	<link rel="stylesheet" href="css/material.css"/>
+	<script src="js/material.js"></script>
+	<script src="demo-files/demo.js"></script>
+</head>
+	 
+<body>
+
+<div id="rightMenu"class="sidemenu sidebar responsive" >	
+	  <div  overflow-y:scroll id="inforside">
+	  	<input type="text" class="text-input border-blue-500" value="" placeholder="搜索">
+         <p>  </p>
+		 <p>  </p>
+		 <p>  </p>
+		 <button id="sidemenu-button" class="button color-blue-500" onClick="SideMenu.toggle(document.querySelector('#leftMenu'));">Click </button>
+	         	  </div>
+</div>
+
+	<div id="leftMenu" class="sidemenu sidebar responsive" z=999 hidden>
+		<div class="sidemenu-hero fade">
+			<img class="avatar" src="demo-files/avatar.jpg"/>
+			<img class="sidemenu-hero-image" src="demo-files/sidemenu-hero.jpg"/>
+			<span class="title">主治医师</span>
+			<span class="text">啦啦啦</span>	
+		</div>
+	</div>
+	
+	
+	<div  class="main-content">
+	<div id="">
+		<ul class="toolbar tabs bg-blue-500 color-white">
+			<li ripple class=selected><a href="#gr">个人信息</a></li>
+			<li ripple><a href="#br">病人主诉</a></li>
+			<li ripple><a href="#tg">体格检查</a></li>
+			<li ripple><a href="#jw">既往病史</a></li>
+			<li ripple><a href="#jt">家庭病史</a></li>
+		</ul>
+		<div id="">
+		 <p>  </p>
+		 <p>  </p>
+			<div class="card" id="gr" z=3>
+			个人信息：</div>
+			<div class="card" id="br"z=3>
+			病人主诉：</div>
+			<div class="card" id="tg"z=3>
+			体格检查：</div>
+			<div class="card" id="jw"z=3>
+			既往病史：</div>
+			<div class="card" id="jt" z=3>
+			家庭病史：</div>
+		</div>
+		<button id="save" class="fab bg-blue-500 color-white" onClick="addElementDiv()" right><i class="icon-create"></i></button>
+		</div>
+	</div>
+	
+	
+
+<script >  
+			function addElementDiv() {
+	　　　　var parent = document.getElementById("inforside");
+	　　　　var div = document.createElement("div");
+	　　　　div.setAttribute("class", "card rich-card inforcards");div.setAttribute("z", "2");
+	　　　　div.innerHTML = "提醒信息！注意！";
+	　　　　parent.appendChild(div);
+	        sidemenu.toggle(document.querySelector('#leftMenu'));
+	　　    }
+	</script>
+</body>
+
+</html>

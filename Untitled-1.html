@@ -1,0 +1,479 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>电子病历</title>
+    <script language="javascript" type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/js.js"></script>
+    <script type="text/javascript" src="js/jqcloud-1.0.4.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/jqcloud.css"/>
+    <link rel="stylesheet" href="css/material.css"/>
+    <script src="js/material.js"></script>
+</head>
+<!--//<script type="text/javascript" src="js/py.js"></script>-->
+
+
+<body onLoad="onload()">
+
+
+<div id="rightMenu" class="sidemenu sidebar responsive">
+
+    <input id='searcher' type="text" class="text-input border-blue-500" style="width:98%;" placeholder="搜索">
+    <p></p>
+    <p></p>
+    <p></p>
+
+    <div class="card inforcards" id="helpCard" z=3>
+        <div class="card-hero" style="background-image: url('img/help.png')">
+            <h1 style="margin: 0.5em;">欢迎使用<br>帮助请按下按钮</h1>
+        </div>
+        <div class="divider"></div>
+        <div class="card-footer">
+            <button class="button flat" onclick="$(this).parents('.card')[0].hidden=true;">删除</button>
+            <button class="button flat color-orange-500" onclick="  Dialog.show($('#help')[0]);">详细帮助</button>
+        </div>
+    </div>
+
+    <div class="card inforcards" id="diseaseCard" z=3>
+        <div class="card-hero" style="background-image: url('img/pie.png')">
+            <div id="my_words" style="width: 100%; height: 100%;"></div>
+        </div>
+        <div class="divider"></div>
+        <div class="card-footer">
+            <button class="button flat" onclick="$(this).parents('.card')[0].hidden=true;">删除</button>
+            <button class="button flat color-orange-500"
+                    onclick='  Dialog.show($("#factor")[0]);window.frames["factor"].contentWindow.work();'>详细
+            </button>
+        </div>
+    </div>
+
+    <div class="card inforcards" id="dangerCard" z=3>
+        <div class="card-hero" style="background-image: url('img/warning.png')">
+            <div id="dangerWord" style="width: 100%; height: 100%;"></div>
+        </div>
+        <div class="divider"></div>
+        <div class="card-footer">
+            <button class="button flat" onclick="$(this).parents('.card')[0].hidden=true;">删除</button>
+            <button class="button flat color-orange-500"
+                    onclick="  Dialog.show($('#danger')[0]);$('#danger')[0].contentWindow.work();">详细
+            </button>
+        </div>
+    </div>
+
+    <div class="card inforcards" id="search" z=3>
+        <div class="card-hero" style="background-image: url('img/document.png')">
+            <div id="searchWord" style="width: 100%; height: 100%;"></div>
+        </div>
+        <div class="divider"></div>
+        <div class="card-footer">
+            <button class="button flat" onclick="$(this).parents('.card')[0].hidden=true;">删除</button>
+            <button class="button flat color-orange-500"
+                    onclick='  Dialog.show($("#searchResult")[0]);$("#searchResult")[0].contentWindow.work();'>详细检索结果
+            </button>
+        </div>
+    </div>
+</div>
+<iframe width="800" height="600" src="menu/factor.html" class="dialog" id="factor" hidden></iframe>
+<iframe width="800" height="600" src="menu/selectImportPatient.html" class="dialog" id="selectImportPatient" hidden></iframe>
+<iframe width="800" height="600" src="menu/danger.html" class="dialog" id="danger" hidden></iframe>
+<iframe width="800" height="600" src="menu/search.html" class="dialog" id="searchResult" hidden></iframe>
+<iframe frameborder="no" style="padding: 0;" width="1000" height="800" src="menu/help.html" class="dialog" id="help"
+        hidden></iframe>
+
+<div id="menuDialog">
+    <div></div>
+    <iframe width="800" height="600" src="menu/model.html" class="dialog" id="model" hidden></iframe>
+    <iframe width="800" height="600" src="menu/reorganization.html" class="dialog" id="reorganization" hidden></iframe>
+    <iframe width="800" height="600" src="menu/searchPage.html" class="dialog" id="searchPage" hidden></iframe>
+    <iframe width="800" height="600" src="menu/addPage.html" class="dialog" id="addPage" hidden></iframe>
+    <div></div>
+    <div></div>
+    <iframe width="800" height="600" src="menu/importPatient.html" class="dialog" id="importPatient" hidden></iframe>
+    <iframe width="450" height="450" src="menu/editPatient.html" class="dialog" id="editPatient" hidden></iframe>
+    <iframe width="800" height="600" src="menu/searchPatient.html" class="dialog" id="searchPatient" hidden></iframe>
+    <div></div>
+    <div></div>
+    <iframe width="800" height="600" src="menu/setting.html" class="dialog" id="setting" hidden></iframe>
+    <iframe width="400" height="270"frameborder=0 src="menu/login.html" class="dialog" id="login" hidden></iframe>
+    <div></div>
+    <div></div>
+    <iframe width="800" height="600" src="menu/addTerm.html" class="dialog" id="addTerm" hidden></iframe>
+    <iframe width="800" height="600" src="menu/addTips.html" class="dialog" id="addTips" hidden></iframe>
+    <iframe width="800" height="600" src="menu/editTips.html" class="dialog" id="editTips" hidden></iframe>
+    <div></div>
+</div>
+
+
+
+
+<div id="leftMenu" class="sidemenu sidebar responsive" z=999 hidden>
+    <div class="sidemenu-hero fade">
+        <img class="avatar" src="demo-files/avatar.jpg"/>
+        <img class="sidemenu-hero-image" src="demo-files/sidemenu-hero.jpg"/>
+        <span class="title">主治医师</span>
+        <span class="text">张三</span>
+    </div>
+    <div class="bg-Grey-100" style="vertical-align: middle;margin-left:0;height: 5%;width: 100%">
+        <!--<div class="switch bg-Grey-100" style="width:100%;margin-left:1em;margin-top:1em; ">-->
+            <table>
+                <tr>
+                    <td>
+                        <div class="switch ">
+                            <input class='' type="checkbox" id="switch"/>
+                        <label  for="switch"></label>
+                            <label class=" form-control-label" style="font-size: 20px;">固定</label>
+</div>
+                    </td>
+                    <td>
+                        <div class="switch">
+                        <input  type="checkbox" onclick="$('.card').attr('contentEditable',this.checked);" checked id="editable"/>
+                        <label  for="editable"></label>
+                        <label  class="form-control-label" style="font-size: 20px;">编辑</label>
+                    </div>
+                    </td>
+                    <td>
+                        <button class="button raised bg-blue-500 color-white" id="switchModel">abs</button>
+                    </td>
+                </tr>
+            </table>
+        <!--</div>-->
+
+        <!--<div style='margin:auto auto;'class="switch">
+            <input type="checkbox" id="switch"/>
+            <label for="switch">23423</label>
+        </div>
+        <div style='margin:auto auto;'class="switch">
+            <input type="checkbox" id="editable"/>
+            <label for="editable">23443</label>
+        </div>
+        <button style='margin:-5% 1px;right: 1px ;position: relative;' class="button raised bg-blue-500 color-white">Colored</button>
+-->
+
+    </div>
+    <div class="menu" id="my-menu" style="overflow-y: scroll">
+        <h2>病历管理</h2>
+        <li ripple=""><a><i class=" icon-file-download"></i>导入模版</a></li>
+        <li ripple=""><a><i class=" icon-content-copy"></i>病历重排</a></li>
+        <li ripple=""><a><i class="icon-pageview"></i>查找病历</a></li>
+        <li ripple=""><a><i class=" icon-add-circle"></i>新建其他病案</a></li>
+        <li class="divider"></li>
+        <h2>病人管理</h2>
+        <li ripple=""><a><i class=" icon-person-add"></i>导入病人</a></li>
+        <li ripple=""><a><i class="icon-accessibility "></i>病人安排</a></li>
+        <li ripple=""><a><i class=" icon-search"></i>病人查询</a></li>
+        <li class="divider"></li>
+        <h2>系统设置</h2>
+        <li ripple=""><a><i class="icon-settings"></i>病历设置</a></li>
+        <li ripple=""><a><i class=" icon-account-circle"></i>切换用户</a></li>
+        <li class="divider"></li>
+        <h2>自动完成管理</h2>
+        <li ripple=""><a><i class="icon-add"></i>新建专有名词</a></li>
+        <li ripple=""><a><i class="icon-circles-extended"></i>新建自动完成</a></li>
+        <li ripple=""><a><i class=" icon-mode-edit"></i>编辑自动完成</a></li>
+        <li class="divider"></li>
+        <li ripple=""><a><i class=" icon-exit-to-app"></i>退出</a></li>
+    </div>
+    <!--<div id="my-menu">-->
+        <!--<div id="my-menu-left">-->
+            <!--<div class="my-menu-section" id="m1">-->
+                <!--病历列表-->
+            <!--</div>-->
+            <!--<div class="my-menu-section bg-Grey-100" id="m2">-->
+                <!--2222-->
+            <!--</div>-->
+            <!--<div class="my-menu-section bg-Grey-100" id="m3">-->
+                <!--33-->
+            <!--</div>-->
+            <!--<div class="my-menu-section bg-Grey-100" id="m4">-->
+                <!--334-->
+            <!--</div>-->
+            <!--<div class="my-menu-section bg-Grey-100" id="m5">-->
+                <!--335-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div id="my-menu-right">-->
+            <!--<ul class="menu">-->
+                <!--<li ripple><a href="#">Open file</a></li>-->
+                <!--<li class="divider"></li>-->
+                <!--<li ripple><a href="#">Reload file</a></li>-->
+            <!--</ul>-->
+        <!--</div>-->
+    <!--</div>-->
+</div>
+
+
+<div class="main-content">
+    <ul class="toolbar tabs bg-Blue-500 color-white" id="tb">
+</ul>
+    <div class="main-content" id="dk">
+</div>
+<p></p>
+<p></p>
+</div>
+<button id="save0" class="fab bg-blue-500 color-white" right onclick=""><i
+        class="icon-save"></i></button>
+<button id="save" class="fab bg-blue-500 color-white" right onclick="window.open(window.location.href );"><i
+        class="icon-create"></i></button>
+</div>
+
+<div id='inputmenu' style="left: 50%;top: 50%;position: absolute;" hidden>
+    <input id='inputer' type="text" style="opacity:0.8;float:top;background-color: white"
+           class="text-input bg-Grey-100"
+           oninput="inputerChange();this.size=(this.value.length>4?this.value.length:4);"
+           onpropertychange="inputerChange();this.size=(this.value.length>4?this.value.length:4);"
+           onclick="$('#inputmenu .bg-Grey-100').removeClass('bg-Grey-100');
+        $('#inputer').addClass('bg-Grey-100');
+  " size="4">
+    <div style="float:top;">
+        <table>
+            <tr>
+                <td>
+                    <ul style=" float:top;" page=0 class="menu" id="baidu">
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <ul style="float:top;" page=0 class="menu" id="term">
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+<div id='numberInputMenu' style="left: 50%;top: 50%;position: absolute;" hidden>
+    <input id='numberInputer' type="text" style="opacity:0.8;float:top;background-color: white"
+           class="text-input bg-Grey-100"
+           oninput="numInputerChange();this.size=(this.value.length>4?this.value.length:4);"
+           onpropertychange="numInputerChange();this.size=(this.value.length>4?this.value.length:4);"
+           onclick="$('#inputmenu .bg-Grey-100').removeClass('bg-Grey-100');$(this).addClass('bg-Grey-100')"
+           size="4">
+
+    <div style="float:top;">
+        <ul style="width: 10%" page=0 class="menu" id="mainNum">
+        </ul>
+        <ul style="width: 10%" page=0 class="menu" id="otherNum">
+        </ul>
+    </div>
+</div>
+
+<div id='charSelectMenu' style="left: 50%;top: 50%;position: absolute;" hidden>
+    <button id='selectPageUp' class="button raised " style="font-size:20px;padding:0;" ;>←</button>
+    <button id='selectPageDown' class="button raised" style="font-size:20px;padding:0" ;>→</button>
+    <table>
+        <tr>
+            <td>
+                <ul style=" float:top;" page=0 class="menu" id="selectBaidu">
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <ul style="float:top;" page=0 class="menu" id="selectTerm">
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <ul style="float:top;" page=0 class="menu">
+                    <li ripple> <span class="negative">无</span></li>
+                    <li ripple> <span class="negative">（不填）</span></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div id='unitSelectMenu' style="width: 100px;position: absolute;" hidden>
+    <ul style="height:200px;overflow-y:scroll;width: 100px" page=0 class="menu" id="mainSelectUnit">
+    </ul>
+</div>
+
+
+<div id='tipsMenu' style="left: 50%;top: 50%;position: absolute;">
+    <ul id="tips" style="width: 10%" page=0 class="menu">
+
+    </ul>
+</div>
+
+<div id='positonMenu' style="position: absolute;" hidden>
+    <input id='positonMenuY' type="range" class="slider"
+           style="position: absolute;
+        -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);"
+           oninput="positionSelecterChangeY();"
+           timeid=0 onpropertychange="positionSelecterChangeY();"
+           onmouseover="clearTimeout(document.getElementById('positonMenu').timeid);"
+           onmouseout="document.getElementById('positonMenu').timeid=setTimeout(function(){
+           document.getElementById('positonMenu').hidden=true;autoBreakLine();
+        },700);"/>
+    <input id='positonMenuX' type="range" class="slider" oninput="positionSelecterChangeX();"
+           timeid=0 onpropertychange="positionSelecterChangeX();"
+           onmouseover="clearTimeout(document.getElementById('positonMenu').timeid);"
+           onmouseout="document.getElementById('positonMenu').timeid=setTimeout(function(){
+           document.getElementById('positonMenu').hidden=true;autoBreakLine();
+        },700);"/>
+</div>
+
+<div id='numSelectMenu'
+     style="position: absolute;
+        -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);" hidden>
+    <input type="range" id="numSelecter" class="slider" oninput="numSelecterChange();"
+           timeid=0 onpropertychange="numSelecterChange();"
+           onmouseover="clearTimeout(document.getElementById('numSelectMenu').timeid);"
+           onmouseout="document.getElementById('numSelectMenu').timeid=setTimeout(function(){
+           document.getElementById('numSelectMenu').hidden=true;autoBreakLine();
+        },700);"/>
+</div>
+<!--onmouseout="document.getElementById('numSelectMenu').hidden=true;-->
+
+
+
+<div id="menzen" hidden>
+    <ul class="toolbar tabs bg-Blue-500 color-white" id="tb0">
+        <li ripple id="tb_1" class=selected
+            onclick="$('li.selected').removeClass('selected');$('#tb_1').addClass('selected')"><a href="#br">病人信息</a>
+        </li>
+        <li ripple id="tb_2" onclick="$('li.selected').removeClass('selected');$('#tb_2').addClass('selected')"><a
+                href="#zs">主诉</a></li>
+        <li ripple id="tb_3" onclick="$('li.selected').removeClass('selected');$('#tb_3').addClass('selected')"><a
+                href="#bs">病史</a></li>
+        <li ripple id="tb_4" onclick="$('li.selected').removeClass('selected');$('#tb_4').addClass('selected')"><a
+                href="#tj">体检</a></li>
+        <li ripple id='tb_5' onclick="$('li.selected').removeClass('selected');$('#tb_5').addClass('selected')"><a
+                href="#cb">初步诊断</a></li>
+        <li ripple id="tb_6" onclick="$('li.selected').removeClass('selected');$('#tb_6').addClass('selected')"><a
+                href="#cl">处理意见</a></li>
+    </ul>
+
+    <div class="main-content" id="dk0">
+        <div style="width:96%;margin-left:auto; margin-right:auto;"> 病人信息</div>
+        <div class="card" contenteditable="true" id="br" z=3>
+            <code class="firstline" >
+                <span class="newspan">请在这里键入病人卡号</span>
+            </code>
+        </div>
+        <div style="width:96%;margin-left:auto; margin-right:auto;"> 主诉</div>
+        <div class="card" contenteditable="true" id="zs" z=3>
+            <code class="firstline" >
+                <!--<span class="symptom">撒旦法</span>-->
+                <!--<span class="symptom">沙发</span>-->
+                <!--<span class="symptom">第三方</span>-->
+                <span class="newspan">请在这里键入新内容</span>
+            </code>
+        </div>
+        <div style="width:96%;margin-left:auto; margin-right:auto;">病史</div>
+        <div class="card" contenteditable="true" id="bs" z=3>
+            <code class="firstline">
+                <span class="newspan">请在这里键入新内容</span>
+            </code>
+        </div>
+
+        <div style="width:96%;margin-left:auto; margin-right:auto;">体检</div>
+        <div class="card" contenteditable="true" id="tj" z=3>
+            <code class="firstline">
+                <span class="newspan">请在这里键入新内容</span>
+            </code>
+        </div>
+
+        <div style="width:96%;margin-left:auto; margin-right:auto;"> 初步诊断</div>
+        <div class="card" contenteditable="true" id="cb" z=3>
+            <code class="firstline">
+                <span class="newspan">请在这里键入新内容</span>
+            </code>
+        </div>
+
+        <div style="width:96%;margin-left:auto; margin-right:auto;"> 处理意见</div>
+        <div class="card" contenteditable="true" id="cl" z=3>
+            <code class="firstline">
+                <span class="newspan">请在这里键入新内容</span>
+            </code>
+        </div>
+
+    </div>
+</div>
+<div id="zuyuan" hidden >
+    <ul class="toolbar tabs bg-Blue-500 color-white" id="tb1">
+        <li ripple id="tb_10" class=selected
+            onclick="$('li.selected').removeClass('selected');$('#tb_1').addClass('selected')"><a href="#br">一般项目</a>
+        </li>
+        <li ripple id="tb_20" onclick="$('li.selected').removeClass('selected');$('#tb_20').addClass('selected')"><a
+                href="#zs0">主诉</a></li>
+        <li ripple id="tb_30" onclick="$('li.selected').removeClass('selected');$('#tb_30').addClass('selected')"><a
+                href="#xb">现病史</a></li>
+        <li ripple id="tb_40" onclick="$('li.selected').removeClass('selected');$('#tb_40').addClass('selected')"><a
+                href="#jw">既往史</a></li>
+        <li ripple id='tb_50' onclick="$('li.selected').removeClass('selected');$('#tb_50').addClass('selected')"><a
+                href="#xt">系统回顾</a></li>
+        <li ripple id="tb_60" onclick="$('li.selected').removeClass('selected');$('#tb_60').addClass('selected')"><a
+                href="#gr">个人史</a></li>
+        <li ripple id="tb_70" onclick="$('li.selected').removeClass('selected');$('#tb_70').addClass('selected')"><a
+                href="#cl">婚姻、月经及生育史</a></li>
+        <li ripple id="tb_80" onclick="$('li.selected').removeClass('selected');$('#tb_80').addClass('selected')"><a
+                href="#cl">家族史</a></li>
+    </ul>
+
+    <div class="main-content" id="dk1">
+        <div style="width:96%;margin-left:auto; margin-right:auto;"> 一般项目</div>
+        <div class="card" contenteditable="true" id="yb" z=3>
+            <code class="firstline" >
+                <span class="newspan">请在这里键入病人卡号</span>
+            </code>
+        </div>
+        <div style="width:96%;margin-left:auto; margin-right:auto;"> 主诉</div>
+        <div class="card" contenteditable="true" id="zs0" z=3>
+            <code class="firstline" >
+                <span class="newspan">请在这里键入新内容</span>
+            </code>
+        </div>
+        <div style="width:96%;margin-left:auto; margin-right:auto;">现病史</div>
+        <div class="card" contenteditable="true" id="xb" z=3>
+            <code class="firstline">
+                <span class="newspan">请在这里键入新内容</span>
+            </code>
+        </div>
+
+        <div style="width:96%;margin-left:auto; margin-right:auto;">既往史</div>
+        <div class="card" contenteditable="true" id="jw" z=3>
+            <code class="firstline">
+                <span class="newspan">请在这里键入新内容</span>
+            </code>
+        </div>
+
+        <div style="width:96%;margin-left:auto; margin-right:auto;"> 系统回顾</div>
+        <div class="card" contenteditable="true" id="xt" z=3>
+            <code class="firstline">
+                <span class="newspan">请在这里键入新内容</span>
+            </code>
+        </div>
+
+        <div style="width:96%;margin-left:auto; margin-right:auto;"> 个人史</div>
+        <div class="card" contenteditable="true" id="gr" z=3>
+            <code class="firstline">
+                <span class="newspan">请在这里键入新内容</span>
+            </code>
+        </div>
+
+        <div style="width:96%;margin-left:auto; margin-right:auto;"> 婚姻、月经及生育史</div>
+        <div class="card" contenteditable="true" id="hy" z=3>
+            <code class="firstline">
+                <span class="newspan">请在这里键入新内容</span>
+            </code>
+        </div>
+        <div style="width:96%;margin-left:auto; margin-right:auto;"> 家族史</div>
+        <div class="card" contenteditable="true" id="jz" z=3>
+            <code class="firstline">
+                <span class="newspan">请在这里键入新内容</span>
+            </code>
+        </div>
+    </div>
+
+</div>
+
+</body>
+
+</html>

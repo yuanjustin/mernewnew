@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../css/material.css"/>
+    <script language="javascript" type="text/javascript" src="../js/jquery-1.11.3.min.js"></script>
+
+
+</head>
+<body>
+<strong >基本信息：</strong>
+<ul class="list">
+    <li>姓名：<input class="text-input bg-Grey-100"value="张三"></li>
+    <li>性别：<input class="text-input bg-Grey-100"value="女"></li>
+    <li>居住地：<input class="text-input bg-Grey-100"value="汕尾市"></li>
+</ul>
+
+<strong >既往史：</strong>
+<ul class="list">
+    <li>
+        <div class="checkbox">
+            <input type="checkbox" id="checkbox1"checked="checked"/>
+            <label for="checkbox1"></label>
+            <label >    一般健康状况：良好 ， 无 急慢性传染病史，无 外伤史，无 药物过敏史，无 输血史。生于本地 ，无 长期外地居住史。无 特殊嗜好。无 家族遗传病史。
+            </label>
+        </div>
+    </li><li>
+    <div class="checkbox">
+        <input type="checkbox" id="checkbox"checked="checked"/>
+        <label for="checkbox"></label>
+        <label >曾经做过阑尾切除手术</label>
+    </div>
+</li>
+    <strong >个人史：</strong>
+</ul>
+<ul class="list">
+    <li>
+        <div class="checkbox">
+            <input type="checkbox" id="checkbox2"checked="checked"/>
+            <label for="checkbox2"></label>
+            <label >    出生生长于 原籍 ，生活条件 一般 ，无 疫水疫区涉足史，
+            </label>
+        </div>
+    </li><li>
+    <div class="checkbox">
+        <input type="checkbox" id="checkbox3"checked="checked"/>
+        <label for="checkbox3"></label>
+        <label >吸烟</label>
+    </div>
+</li>
+
+    <strong >    家族史：
+    </strong>
+
+</ul>
+<ul class="list">
+    <li>
+        <div class="checkbox" >
+            <input type="checkbox" id="checkbox4"checked="checked"/>
+            <label for="checkbox4"></label>
+            <label >无 家族传染性、遗传倾向性疾病史。</label>
+        </div>
+    </li>
+    <!--<li>
+    <div class="checkbox">
+        <input type="checkbox" id="checkbox5"/>
+        <label for="checkbox5"></label>
+        <label >345345</label>
+    </div>
+</li>-->
+</ul>
+
+<button class="button raised bg-blue-500 color-white" onclick="parent.import0()">导入</button>
+
+</body>
+</html>

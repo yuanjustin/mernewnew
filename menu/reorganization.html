@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--引入wangEditor.css-->
+    <link rel="stylesheet" type="text/css" href="../css/wangEditor-1.3.12.css">
+    <link rel="stylesheet" type="text/css" href="../css/material.css"/>
+    <script language="javascript" type="text/javascript" src="../js/jquery-1.11.3.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/default.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/component.css"/>
+    <script src="../js/modernizr.custom.js"></script>
+
+</head>
+<body>
+
+<select id='menu' class="dropdown-menu">
+    <option>按疾病重排</option>
+    <option>按时间重排</option>
+    <option>按打印格式重排</option>
+</select>
+
+<button class="button raised bg-blue-500 color-white" onclick="work();">重排</button>
+
+<div id="main" style="width:100%">
+
+</div>
+
+
+<div id="disease" hidden>
+    <input type="text" class="text-input" id="dieaseName" placeholder="请输入疾病名称"/>
+
+    <table style="width:100%">
+        <tr>
+            <td>
+                <div>
+                    <ul id="support" class="list">
+                        <li ripple>
+                            <h2>
+                                支持</h2>
+                        </li>
+                        <li ripple>
+                            dfsdf
+                        </li>
+                        <li ripple>
+                            dfsdf
+                        </li>
+                        <li ripple>
+                            dfsdf
+                        </li>
+                        <li ripple>
+                            dfsdf
+                        </li>
+
+                    </ul>
+                </div>
+            </td>
+            <td>
+                <div>
+                    <ul id="nosupport" class="list">
+                        <li ripple>
+                            <h2>
+                                不支持</h2>
+                        </li>
+                        <li ripple>
+                            dfsdf
+                        </li>
+                        <li ripple>
+                            dfsdf
+                        </li>
+                        <li ripple>
+                            dfsdf
+                        </li>
+
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+<div id="time" hidden>
+    <div class="container">
+        <header class="clearfix">
+            <span>新本电子病历 <span class="bp-icon bp-icon-about"
+                               data-content="The Blueprints are a collection of basic and minimal website concepts, components, plugins and layouts with minimal style for easy adaption and usage, or simply for inspiration."></span></span>
+
+            <h1>症状时间轴</h1>
+        </header>
+        <div class="main">
+            <ul class="cbp_tmtimeline" id="timeline">
+                <li>
+                    <time class="cbp_tmtime"><span>4/10/13</span><span>18:30</span></time>
+                    <div class="cbp_tmicon cbp_tmicon-phone"></div>
+                    <div class="cbp_tmlabel">
+                        <h2>Ricebean black-eyed pea</h2>
+                    </div>
+                </li>
+                <li>
+                    <time class="cbp_tmtime" datetime="2013-04-11T12:04"><span>4/11/13</span> <span>12:04</span></time>
+                    <div class="cbp_tmicon cbp_tmicon-screen"></div>
+                    <div class="cbp_tmlabel">
+                        <h2>Greens radish arugula</h2>
+
+                        <p>Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu
+                            courgette lettuce. Celery coriander bitterleaf epazote radicchio shallot winter purslane
+                            collard greens spring onion squash lentil. Artichoke salad bamboo shoot black-eyed pea
+                            brussels sprout garlic kohlrabi.</p>
+                    </div>
+                </li>
+                <li>
+                    <time class="cbp_tmtime" datetime="2013-04-13 05:36"><span>4/13/13</span> <span>05:36</span></time>
+                    <div class="cbp_tmicon cbp_tmicon-mail"></div>
+                    <div class="cbp_tmlabel">
+                        <h2>Sprout garlic kohlrabi</h2>
+
+                        <p>Parsnip lotus root celery yarrow seakale tomato collard greens tigernut epazote ricebean
+                            melon tomatillo soybean chicory broccoli beet greens peanut salad. Lotus root burdock bell
+                            pepper chickweed shallot groundnut pea sprouts welsh onion wattle seed pea salsify turnip
+                            scallion peanut arugula bamboo shoot onion swiss chard. Avocado tomato peanut soko amaranth
+                            grape fennel chickweed mung bean soybean endive squash beet greens carrot chicory green
+                            bean. Tigernut dandelion sea lettuce garlic daikon courgette celery maize parsley komatsuna
+                            black-eyed pea bell pepper aubergine cauliflower zucchini. Quandong pea chickweed tomatillo
+                            quandong cauliflower spinach water spinach.</p>
+                    </div>
+                </li>
+                <li>
+                    <time class="cbp_tmtime" datetime="2013-04-15 13:15"><span>4/15/13</span> <span>13:15</span></time>
+                    <div class="cbp_tmicon cbp_tmicon-phone"></div>
+                    <div class="cbp_tmlabel">
+                        <h2>Watercress ricebean</h2>
+
+                        <p>Peanut gourd nori welsh onion rock melon mustard jícama. Desert raisin amaranth kombu
+                            aubergine kale seakale brussels sprout pea. Black-eyed pea celtuce bamboo shoot salad
+                            kohlrabi leek squash prairie turnip catsear rock melon chard taro broccoli turnip greens.
+                            Fennel quandong potato watercress ricebean swiss chard garbanzo. Endive daikon brussels
+                            sprout lotus root silver beet epazote melon shallot.</p>
+                    </div>
+                </li>
+                <li>
+                    <time class="cbp_tmtime" datetime="2013-04-16 21:30"><span>4/16/13</span> <span>21:30</span></time>
+                    <div class="cbp_tmicon cbp_tmicon-earth"></div>
+                    <div class="cbp_tmlabel">
+                        <h2>Courgette daikon</h2>
+
+                        <p>Parsley amaranth tigernut silver beet maize fennel spinach. Ricebean black-eyed pea maize
+                            scallion green bean spinach cabbage jícama bell pepper carrot onion corn plantain garbanzo.
+                            Sierra leone bologi komatsuna celery peanut swiss chard silver beet squash dandelion maize
+                            chicory burdock tatsoi dulse radish wakame beetroot.</p>
+                    </div>
+                </li>
+                <li>
+                    <time class="cbp_tmtime" datetime="2013-04-17 12:11"><span>4/17/13</span> <span>12:11</span></time>
+                    <div class="cbp_tmicon cbp_tmicon-screen"></div>
+                    <div class="cbp_tmlabel">
+                        <h2>Greens radish arugula</h2>
+
+                        <p>Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu
+                            courgette lettuce. Celery coriander bitterleaf epazote radicchio shallot winter purslane
+                            collard greens spring onion squash lentil. Artichoke salad bamboo shoot black-eyed pea
+                            brussels sprout garlic kohlrabi.</p>
+                    </div>
+                </li>
+                <li>
+                    <time class="cbp_tmtime" datetime="2013-04-18 09:56"><span>4/18/13</span> <span>09:56</span></time>
+                    <div class="cbp_tmicon cbp_tmicon-phone"></div>
+                    <div class="cbp_tmlabel">
+                        <h2>Sprout garlic kohlrabi</h2>
+
+                        <p>Parsnip lotus root celery yarrow seakale tomato collard greens tigernut epazote ricebean
+                            melon tomatillo soybean chicory broccoli beet greens peanut salad. Lotus root burdock bell
+                            pepper chickweed shallot groundnut pea sprouts welsh onion wattle seed pea salsify turnip
+                            scallion peanut arugula bamboo shoot onion swiss chard. Avocado tomato peanut soko amaranth
+                            grape fennel chickweed mung bean soybean endive squash beet greens carrot chicory green
+                            bean. Tigernut dandelion sea lettuce garlic daikon courgette celery maize parsley komatsuna
+                            black-eyed pea bell pepper aubergine cauliflower zucchini. Quandong pea chickweed tomatillo
+                            quandong cauliflower spinach water spinach.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="print" hidden>
+    <textarea class="text-input" id="printText" style='height:300px; width:100%;'></textarea>
+    <!--创建一个 textarea 标签-->
+
+</div>
+<script>
+    function work() {
+        if ($('#menu').val() == '按疾病重排') {
+            $('#support').html('');
+            $('#nosupport').html('');
+            var termspan = new Array();
+            $(".symptom", window.parent.document).each(function (i, o) {
+                termspan[i] = $(o).text();
+            });
+            $.getJSON(
+                    "http://localhost:8080/dianzibingli/WebServlet",
+                    JSON.stringify({
+                        "order": "reorganizationClass", "disease": $('#dieaseName').val(), "term": termspan
+                    }),
+                    function (result) {
+                        $('#support').append('<li ripple style="float:top"><h2>支持<h2></li>');
+                        $.each(result[0], function (i, item) {
+                            $('#support').append('<li ripple style="float:top">' + item + '</li>');
+                        });
+                        $('#nosupport').append('<li ripple style="float:top"><h2>不支持<h2></li>');
+                        $.each(result[1], function (i, item) {
+                            $('#nosupport').append('<li ripple style="float:top">' + item + '</li>');
+                        });
+
+                    }
+            );
+            $('#main').html($('#disease').html());
+        } else if ($('#menu').val() == '按时间重排') {
+            $('#main').html('');
+            $('#timeline').html('');
+            var index = 0;
+            var data = new Array();
+            var text = $('#switchModel', window.parent.document).text() != "切换到住院病历" ? $('#xb', window.parent.document) : $('#bs', window.parent.document);
+            var addItem = {
+                "time": [
+                    {
+                        "value": 1994,
+                        "unit": "年"
+                    },
+                    {
+                        "value": 10,
+                        "unit": "月"
+                    },
+                    {
+                        "value": 8,
+                        "unit": "日"
+                    },
+                    {
+                        "value": 8,
+                        "unit": "时"
+                    },
+                    {
+                        "value": 8,
+                        "unit": "分"
+                    }
+                ],
+                "symptom": [
+                    "出生"
+                ]
+            };
+            data.push(addItem);
+//            addItem.time = [];
+//            addItem.symptom.length = 0;
+            while (index <= text.find('span').length - 1) {
+                if (isDate(text.find('span').eq(index))) {
+                    data[data.length] = {"time": [], "symptom": []};
+
+//                    addtime.value = text.find('span').eq(index - 1).text();
+//                    addtime.unit = text.find('span').eq(index).text();
+                    data[data.length - 1].time.push({
+                        value: text.find('span').eq(index - 1).text(),
+                        unit: text.find('span').eq(index).text()
+                    });
+                    if (isDate(text.find('span').eq(index + 2))) {
+                        index = index + 2;
+                        while (isDate(text.find('span').eq(index))) {
+                            if (index > text.find('span').length - 1) {
+                                break;
+                            }
+                            if (isDate(text.find('span').eq(index))) {
+//                                addtime.value = text.find('span').eq(index - 1).text();
+//                                addtime.unit = text.find('span').eq(index).text();
+//                                addItem.time.push(addtime);
+                                data[data.length - 1].time.push({
+                                    value: text.find('span').eq(index - 1).text(),
+                                    unit: text.find('span').eq(index).text()
+                                });
+                            }
+                            index = index + 2;
+                        }
+                    }
+                    index++;
+                    while (isDate(text.find('span').eq(index + 1)) == false && index <= text.find('span').length - 1) {
+//                        if (text.find('span').eq(index).hasClass('symptom')) {
+//                            addItem.symptom.push(text.find('span').eq(index).text());
+                        data[data.length - 1].symptom.push(text.find('span').eq(index).hasClass('endspan') || text.find('span').eq(index).hasClass('newspan') ? "/n" : text.find('span').eq(index).text());
+
+//                        }
+                        index++;
+                    }
+//                    data[data.length]=nono(addItem);
+//                    addItem={};
+                }
+                index++;
+            }
+
+            $.getJSON(
+                    "http://localhost:8080/dianzibingli/WebServlet",
+                    JSON.stringify({
+                        "order": "reorganizationTime", "combination": data
+                    }),
+                    function (result) {
+                        $.each(result, function (i, item) {
+                            addTime(item.time[0].value, item.time[1].value, item.time[2].value, item.time[3].value, item.time[4].value, item.symptom);
+                        });
+                    }
+            );
+            $('#main').html($('#time').html());
+        } else {
+            $('#printText').html('')
+            if ($('#switchModel', window.parent.document).text() == "切换到住院病历") {
+                editor.html('<p><strong size="12px">病人信息:</strong>' + $('#br', parent.document).find('span:not(.newspan)').text() + '<br><strong size="12px">主诉:</strong>' + $('#zs', parent.document).find('span:not(.newspan)').text() + '<br><strong size="12px">病史：</strong>' + $('#bs', parent.document).find('span:not(.newspan)').text() + '<br><strong size="12px">体检：</strong>' + $('#tj', parent.document).find('span:not(.newspan)').text() + '<br><strong size="12px">初步诊断：</strong>' + $('#cb', parent.document).find('span:not(.newspan)').text() + '<br><strong size="12px">处理意见：</strong>' + $('#cl', parent.document).find('span:not(.newspan)').text());
+            } else {
+                editor.html(
+                        '<p><strong size="12px">一般项目:</strong>' + $('#yb', parent.document).find('span:not(.newspan)').text() +
+                        '<br><strong size="12px">主诉:</strong>' + $('#zs0', parent.document).find('span:not(.newspan)').text() +
+                        '<br><strong size="12px">现病史：</strong>' + $('#xb', parent.document).find('span:not(.newspan)').text() +
+                        '<br><strong size="12px">既往史：</strong>' + $('#jw', parent.document).find('span:not(.newspan)').text() +
+                        '<br><strong size="12px">系统回顾：</strong>' + $('#xt', parent.document).find('span:not(.newspan)').text() +
+                        '<br><strong size="12px">个人史：</strong>' + $('#gr', parent.document).find('span:not(.newspan)').text() +
+                        '<br><strong size="12px">婚姻、月经及生育史：</strong>' + $('#hy', parent.document).find('span:not(.newspan)').text() +
+                        '<br><strong size="12px">家族史：</strong>' + $('#jz', parent.document).find('span:not(.newspan)').text()
+                );
+            }
+            $('#main').html($('#print').html());
+        }
+    }
+    function addTime(year, mounth, day, hour, minue, symptom) {
+        var text = "";
+        $.each(symptom, function (i, item) {
+            text = text + "  " + item;
+        });
+        $('#timeline').append('<li><time class="cbp_tmtime"><span>' + year + "年<br>" + mounth + "月" + day + "日" + '</span><span>' + hour + ":" + minue + '</span></time>'
+                + '<div class="cbp_tmicon cbp_tmicon-phone"></div><div class="cbp_tmlabel"><h2>' + text + '</h2></div> </li>');
+    }
+    function isDate(obj) {
+        if (obj.hasClass('unit')) {
+            if (obj.text() == '年') {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+    function nono(obj) {
+        var obj2 = obj;
+        return obj2;
+    }
+</script>
+
+
+</body>
+
+<script type="text/javascript" src='../js/wangEditor-1.3.12.min.js'></script>
+<!--注意：javascript必须放在body最后，否则可能会出现问题-->
+<script type="text/javascript">
+    $(function () {
+        editor = $('#printText').wangEditor({
+            'menuConfig': [
+                ['viewSourceCode'],
+                ['bold', 'underline', 'italic', 'foreColor', 'backgroundColor', 'strikethrough'],
+                ['blockquote', 'fontFamily', 'fontSize', 'setHead', 'list', 'justify'],
+                ['createLink', 'unLink', 'insertTable'],
+                ['insertImage', 'insertVideo', 'insertCode'],
+                ['undo', 'redo', 'fullScreen']
+            ]
+        });
+    });
+</script>
+</html>

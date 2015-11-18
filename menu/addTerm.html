@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../css/material.css"/>
+    <script language="javascript" type="text/javascript" src="../js/jquery-1.11.3.min.js"></script>
+    <script>
+        function ajax() {
+            $.ajax("http://jbk.39.net/SelfDiagnosis/DiagnosisHandler.ashx",//路径你来决定
+                    {
+                        type: 'post',
+                        data: {
+                            "act": "fromSysNameInParam", "symname": "咳嗽"
+                        },
+                        headers: {
+                            Origin: "http://jbk.39.net", Referer: "http://jbk.39.net/zicha?zz=%E5%92%B3%E5%97%BD"
+                        },
+                        success: function (result) {
+                            alert(result);
+                        }
+                    });
+
+
+        }
+    </script>
+</head>
+<body>
+
+<button class="button raised bg-blue-500 color-white" onclick="ajax()">导入</button>
+
+</body>
+</html>

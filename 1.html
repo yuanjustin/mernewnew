@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script language="javascript" type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/jqcloud-1.0.4.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/jqcloud.css"/>
+
+</head>
+<body>
+<span>account</span><input type="text" id='account'  />
+<span>passwords</span><input type="text" id='passwords'  />
+<input name= "123" type="button" onclick="ajax();"/>
+
+<div id="my_words" style="width: 100em; height: 100em;"></div>
+
+<script>
+function ajax(){
+    $.getJSON(
+            "http://localhost:8080/dianzibingli/WebServlet1",
+            "dsfa",
+            function (result) {
+                alert("sdfsdaf"+result);
+            }
+    );
+}
+</script>
+
+
+
+</body>
+</html>
